@@ -1,26 +1,4 @@
-{% extends 'hod_template/base_template.html' %}
-
-{% block page_title %}
-    Edit Session Year
-{% endblock page_title %}
-
-{% block main_content %}
-
-{% load static %}
-
-<section class="content">
-        <div class="container-fluid">
-
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- general form elements -->
-                    <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">Edit Session Year</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
-                    <form role="form" method="POST" action="{% url 'edit_session_save' %}">
+                    <form role="form" method="POST" action="{{ action_path }}" enctype="multipart/form-data">
                         {% csrf_token %}
 
                         
@@ -48,34 +26,29 @@
                                 </div>
                                 </div>
                                 {% endif %}
-                            
 
                         <div class="card-body">
-                            <div class="form-group">
-                                <label>Session Start Year </label>
-                                <input type="date" class="form-control" name="session_start_year" value="{{ session_year.session_start_year|date:'Y-m-d' }}">
-                            </div>
+                            <h1>hell world</h1>
 
-                            <div class="form-group">
-                                <label>Session End Year </label>
-                                <input type="date" class="form-control" name="session_end_year" value="{{ session_year.session_end_year|date:'Y-m-d' }}">
-                            </div>
+                            {% comment %} Adding Form with All inputs Here {% endcomment %}
+
+                            {% for field in form %}
+                                <div class="form-group">
+
+                                    {{ field.errors }}
+                                    {{ field.label_tag }}
+                                    {{ field }}
+
+                                </div>
+                            {% endfor %%}
+
+                            
+
 
                         </div>
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                        <input type="hidden" name="session_id" value="{{ session_year.id }}" />
-                        <button type="submit" class="btn btn-primary">Update Session Year</button>
+                        <button type="submit" class="btn btn-primary">{{ button_text }}</button>
                         </div>
                     </form>
-                    </div>
-                    <!-- /.card -->
-
-                </div>
-            </div>
-
-        </div><!-- /.container-fluid -->
-      </section>
-
-  {% endblock main_content %}

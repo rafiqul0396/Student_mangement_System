@@ -1,13 +1,13 @@
 {% extends 'hod_template/base_template.html' %}
 
 {% block page_title %}
-    Update Profile
+    Add Course
 {% endblock page_title %}
 
 {% block main_content %}
 
 {% load static %}
-
+<p> this add course</p>
 <section class="content">
         <div class="container-fluid">
 
@@ -16,11 +16,11 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Update Profile</h3>
+                        <h3 class="card-title">Add Course</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" method="POST" action="{% url 'admin_profile_update' %}">
+                    <form role="form" method="POST" action="{% url 'add_course_save' %}">
                         {% csrf_token %}
 
                         
@@ -52,35 +52,15 @@
 
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Username </label>
-                                <input type="text" class="form-control" name="username" value="{{ user.username }}" disabled="disabled">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Email </label>
-                                <input type="text" class="form-control" name="email" value="{{ user.email }}" disabled="disabled">
-                            </div>
-
-                            <div class="form-group">
-                                <label>First Name </label>
-                                <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Last Name </label>
-                                <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Password </label>
-                                <input type="text" class="form-control" name="password" placeholder="Fill only if you want to change Password.">
+                                <label>Course Name </label>
+                                <input type="text" class="form-control" name="course" placeholder="Enter Course">
                             </div>
 
                         </div>
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                        <button type="submit" class="btn btn-primary">Add Course</button>
                         </div>
                     </form>
                     </div>
